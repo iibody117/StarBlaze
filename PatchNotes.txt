@@ -1,0 +1,270 @@
+-Fixed An Issue where In the selection aircraft scene, deferent resulotion make the pictures of aircraft out of place
+I Added a new scene showing the controls of our Game:
++added 3 animation for each words in contols scene so it fades in.
++added a new script (delayToGame) to show controls and automaticly start the game.
+changes:
+-New LoadControls() Method In LevelManager script.
+-Main Menu (start) button now loads the control scene instead the game scene
+0.3.2
+
+
+-Fixed The buttons bug in selection where the buttons are behind the the Images fixed the layers between the canavas.
+-Fixed the Astroids prefap not having a hit particle system 73
++Added Scene functinon and Objects:
++Added a Wait() function in the AstroiedShooter Script to only function is to wait 2 seconds so we can avoid astroid colliding with enemies.
++added a new enemy prefap called it Poogie enemy, fast fireRate, Low Damage, low health (oneshot).
+#Edited Scriptable objects
+#edited wave 4 to have 3 poogie enemies 2 tanky enemies.
+0.3.3
+
+
+Description: this update includes power up collecting not power up usage yet, it’s a big update cuz it changes UI functionality and changes some colliders and detection systems, plus it adds new objects for power ups.
++added new power Ups (not functionality yet):
++added FireRate power-Up (prefap).
++added ExtraDamage power-Up (prefap).
++added a new script called PowerUpCollector it’s purpose to collect the identity and
+update the UI so it shows the power you have.
+#edited Scripts: #edited (UI Updater) script:
++added and new Function called PowerUpUpdater() to update the UI power up image.
+#Serialize Field of the Image currentPowerUpImage.
+#Serialize Filed of the script PowerUpCollector.
+#Serialize Filed of the sprite of electric_0.
+#Serialize Filed of the sprite of fist_0.
+#edited Player prefap to have:
++an extra script called PowerUpCollector.
++an extra Box Collider 2D for power-up collecting hitbox.
+#edited (Health) Script:
+#it only does the Damage for circle collider 2D.
+*bug detected:
+*no matter how the fire rate of player, if the player spams the button.
+! under development:
+!usage of power ups.
+!adding Timer shows the power usage time.
+!making the power-ups spawn after destroying astroids.
+!making the power-ups move correctly, now it only falls with increasing speed.
+!Fixing detected bugs.
+patch number: 0.4 (Big Update).
+
+
+
+
+-Fixed and issue where the player selection manager sometime doesn’t choose the
+aircraft you want even when shown in the scene.
++Added Scipts:
++Added (aircraftinfo) script to channel aircraft and then change it.
+#edited scripts:
+#Edited (AstroidMover) script to have OnDestroy() method so it can spawn power up
+by chance, the chance to have a power up of the 2 types is 66.6.
+#edited (powerUpIdentity) script so it gets the player object on start() method instead
+of the prefap.
+#Edited (SelectionManager) script to transfer info to aircraftInfo Gameobject instead
+of editing the player prefap.
+
+! under development:
+!usage of power ups.
+!adding Timer shows the power usage time.
+!making the power-ups spawn after destroying astroids. - Done
+!Fixing and the selection manager where sometimes doesn’t change the aircraft chosen.
+- Done
+!making the power-ups move correctly, now it only falls with increasing speed.
+!Fixing FireRate Bug where player can mash the shoot button.
+0.4.1
+
+
+
+-Fixed where the power up was falling with increasing Speed.
++Added features:
++added a new Timer Images and funtionality where the timer decrease with chosen
+cooldown
++Added scripts:
++Added (PowerUpMover) to move the power-up correctly
+#edited Scripts:
+#Edited (ConrolPlayer) script to have new (usepowerup) Button F.
+#Also Edited the input System Sheet.
+#Edited (PowerUpCollecter):
++Added new funciton called PowerTrigger() so we can use the power ups and timer
+starts.
+
+#Edited (UIUpdater):
++Added new Function TimerDecreasing() takes the timers and check of there enabled and then decrease them.
++Added new Function TimeChecker() makes the timer Disabled again when it finishes and reset the Timer Cooldown.
+*Bug Detected:
+-Detected a Bug where the player touches any enemy or astroid it gets destroyed while health is still up.
+-Detected where if the timer is on and you take the same power up and use it, It get used and Timer doesn’t reset.
+! under development:
+!usage of power ups.
+!adding Timer shows the power usage time. - Done
+!making the power-ups move correctly, now it only falls with increasing speed. - Done
+!Fixing FireRate Bug where player can mash the shoot button.
+!Fixing Detected bug where player gets destroyed.
+!Fixing Detected bug where timer doesn’t reset.
+! New making a new power up called shield it active when taken, Deactive whendamage takes.
+0.4.2
+
+
+-Fixed an issue where the player was getting destroyed on touching the any enemy or astroid instead he destroy the object touch and take it's damage.
+-Fixed an issue where the player is using the power up again while it's on Timer does not reset, no it resets.
+
++Added Stuff:
++Added a new Prefap called shield object it's a power up
++Added a new script called (ShieldActivation) script 
++added a new animation called shieldin plays by shield activation
++Added a new animation called shieldout plays when shield takes damage
+
+#edited stuff:
+#Edited the player prefap to have a child called shield with sprite,  shieldactivatiion script, edge collider, and animator.
+
+#Edited (DamageDealer) Script:
+#Edited that the Hit(Collider2D) function now takes Collider from health and check if it's player do not destroy, else Destroy.
+
+#Edited (Health) scripts:
+#Edited that the script  send the Collider2D when the touching happening to Damagedealer.Hit(Collider2D) funciton.
+#Edited Ontrigger2D() Function to check if it touches the shield destroy shield and destroy the shot.
+#Edited start() to check if the game object name = to Player it Finds the Shield Script in the shield object child.
+
+#Edited (UIUpdater) Script:
++Added a new Function to have Called TimeResetWhenNeeded(Int ID) depends on the ID it knows the power up and checks of it's on reset the time.
+
+#Edited (PowerUpCollector) script: 
+#Edited the PowerUpIDTaker() to instantly play the animation of shield activation when the ID =  3 no need to add it in the PowerTrigger() function.
+
+#Edited (AstroidMover) script:
+#Edited OnDestroy() function to have the random value increase and spawn shield object when destroy by random.
+
+! under development: 
+!Fixing FireRate Bug where player can mash the shoot button.
+!Fixing Detected bug where player gets destroyed.
+!Fixing Detected bug where timer doesn't reset.
+!making a new power up called shield it active when taken, Deactive when damage takes.
+!New adding new waves more complex ones.
+!New adding new game scenes as stages. 
+!New adding new buttons in main menu to shows the stages.
+0.5 (Big Update) 
+
+
+-Fixed a bug where ScoreKeeper can't find the GoalChecker and Exit not showing the second timer you play the game from GameOver Screen
+-Fixed the bug where astroid when going to another scene get Destroyed and spawn a power up in Game Over Scene.
+-Fixed the bug where astroid touches player's box collider, astroid gets destroyed while player takes no damage. 
+
++Added Stuff:
++Added health Prefap where the player can take 20% health back, it has 15% to spawn from enemies.
++Added a new script called (HealSpawning), it only purpose OnDestroy() there is a 15% Spawn the Health Prefap object.
+
+#Edited Stuff
+ #Edited the (GoalChecker) Script:
++Added script object of type scorekeeper to find it when the scene start.
+#Edited the Start() To introduce it self to the scorekeeper via function call.
+
+#Edited the (ScoreKeeper) Script:
+-Deleted the start method which looks where the goalkeeper script (Didn't work).
++Added a new function called IntrodiceGoalKeeper(GoalChecker ValueScript)  it's only purpose to be called when game scene loaded so Exit can work.
+
+#Edited Enemy Prefaps:
++added the new script (HealSpaawning) to have the chance to spawn health packs that can heal the player.
+
+#Edited (AstroidMover) script:
+#Edited the OnDestroy() to check if the scene is still loaded do your job as usual if not destroy and don't spawn power ups.
+
+#Edited Astroids Prefaps:
+#Edited the astroids object CircleCollider2D to uncheck the Trigger to fix the bug where astroid touch player box collider gets damage.
+
+! under development: 
+!Fixing FireRate Bug where player can mash the shoot button.
+!adding new waves more complex ones.
+!adding new game scenes as stages. 
+!adding new buttons in main menu to shows the stages.
+0.5.1 
+
+
+
++Added Stuff:
++Added a new game object called LevelButtons in MainMenu Scene to have 4 Buttons: from 1 to 4 is the levels and the last one is Go back Button where it shows the main menu buttons again 
+
+
+#Edited Stuff:
+#Edited (LevelManager) Script
++Added a new Function called HideLevelsShowMain() where it hide the LevelButtonsGroup and make sure the mainmenu button group shows. 
++Added a new Function called  ShowLevelsHideMain() it does the opposite of the above.
+#Edited the Start() to Check of the scene loaded called main menu find the group buttons and called  HideLevelsShowMain()
+
+#Edited StartMenuButtonGroup game object:
+#Edited the child start on Click calls the HideLevelsShowMain() From (LevelManager) Script
+
+#Edited AudioManager Game Object in ControlsShowingScene to play a space atmostphere.
+
+! under development: 
+!Fixing FireRate Bug where player can mash the shoot button.
+!adding new waves more complex ones.
+!adding new game scenes as stages. 
+!adding new buttons in main menu to shows the stages.
+
+0.5.2
+
+
+
+-Fixed an issue where the player Damage doesn't get edited at the projectile.
+-Fixed an issue where the all timers get reseted when you use any power up before it finishs 
+
++Added Stuff:
++Added 2 copies of player projectile and added to the name the color for each spaceship so it has the right damage for it.
++Added 2 copies of the GameScene and called GameScene 1 and GameScene 2.
++Added a new Script called (GSID) so it can take the ID of the last Game Scene loaded.
++Added a new game Object Called GS(ID) to have the script called (GSID).
+
+#Edited Stuff:
+#Edited (Shooter) Script:
++Added a Setter and getter functions that pass the Projectile prefap and set it.
+
+#Edited (Aircraft) script:
++Added a Setter and getter functions that can take and apply the projectile prefap on player's shooter.
+#Edited the Awake button to take the defaults player projectile prefap.
+#Edited the SetChangesOnPlayer() function to also change the players shooter projectile prefap when game starts.
+
+#Edited (SelectionManager) Script:
+#Edited the script to have Serialize Fields of the 3 shots projectile with deferent Damage.
+#Edited the ShowInfo() fuinction to choose the write projectile prefap.
+#Edited the OnConfirmClick() function to pass the right projectile to Aircraft script.
+
+#Edited (LevelManager) Script:
+#Edited the start() function to also check of the scene load is Game scene 1 ,2, or 3 and look for GSID script in main menu and game over. 
+#Edited the LoadGame(int ID) to take ID for loading different GameScene depoends on ID.
++Added GameOverPlayAgain() funtion that loads the last game scene loaded.
+
+! under development: 
+!Fixing FireRate Bug where player can mash the shoot button.
+!adding new waves more complex ones.
+!adding new game scenes as stages.
+
+0.5.3
+
+
+
+Note: i added a enemy called destroyer,  it's purpose to do what the tanky enemy does with extra fire rate, it meant to spawn in the later stages when the player has the more power full ships so the player do not stick with one ship. 
+
+
+-Fixed an issue where taking the shield or health while have extra damage or fire rate will not make them useable.
+-Fixed the FireRate issue.
+-Fixed an issue where enemy Damage was not Changed.
+-Rotated the tanky enemy and Boogie enemy sprite to look right 180 degree.
+
++Added stuff
++Added extra copies from the enemy projectile so we can fix the enemy shooter to take these projectile.
++Added a copy of an enemy called Destroyer, with it porjectile,  where it shoots normal speed with big damage and very tanky worth 300 point.
++Added more waves and and specified for each game scene waves and enemies.
++Added a GameObject called Achievement goal under canvas to show Text of Goal need to complete the game.
+
+
+#Edited stuff:
+#Edited (PowereUpCollecter) Script to store the power up not used when picking up health or shield.
+
+#Edited GoalChecker Script:
+#Edited the game object in each scene to have the score chosen.
+#Edited the GoalCheck(int  currenScore) to change the goal text Color and content
++Added a new function to set the achievement goal text to the goal score.
+
+! under development: 
+!Fixing FireRate Bug where player can mash the shoot button.
+!adding new waves more complex ones.
+
+0.6(Big Update).
+
