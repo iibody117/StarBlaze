@@ -54,6 +54,8 @@ public class SelectionManager : MonoBehaviour
         ChosenID = playerHealthScript.GetID();
         ChosenColor = playerHealthScript.GetColor();
         ChosenName = playerHealthScript.GetName();
+
+        aircraftInfo = GameObject.Find("AircraftInfo").GetComponent<AircraftInfo>();
         
         // Get The Player Sprite from the Prefap
         PlayerSprite = playerPrefap.GetComponentInChildren<SpriteRenderer>();
