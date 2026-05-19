@@ -1,7 +1,9 @@
 # StarBlaze
-A Game Me and my Friend Rashad created for our senior project.
+A Game created for our senior.
 
 This game is made for our senior porject in King Abdulaziz University.
+
+memebrs: Abdullah And Rashad.
 
 Guide how to install the game:
 
