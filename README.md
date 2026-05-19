@@ -3,7 +3,7 @@ A Game created for our senior.
 
 This game is made for our senior project in King Abdulaziz University.
 
-Memebrs: Abdullah And Rashad.
+Members: Abdullah And Rashad.
 
 Guide how to install the game:
 
@@ -11,7 +11,7 @@ Guide how to install the game:
 
 2.Click on "View Raw" it will download the zip in you downloads.
 
-3.YOU MUST extract the file you don't face an issue where the unityplayer.dll is not found.
+3.YOU MUST extract the file because you don't face an issue where the unityplayer.dll is not found.
 
 4.open the extracted file and look for StarBlaze.exe.
 
